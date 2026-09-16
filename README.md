@@ -1,460 +1,456 @@
 # CodeInsight AI
 
-## Fast Prompting en Acción
+## Asistente inteligente para análisis y mejora de proyectos web mediante Prompt Engineering
 
-**CodeInsight AI** es una Prueba de Concepto (POC) desarrollada para la materia **Inteligencia Artificial: Generación de Prompts** de Coderhouse.
+**Proyecto Final — IA: Entretejiendo Imaginación y Algoritmos**
 
-El proyecto utiliza técnicas de **Prompt Engineering y Fast Prompting** para asistir en la revisión final de proyectos web mediante Inteligencia Artificial Generativa.
+CodeInsight AI es una **Proof of Concept (POC)** desarrollada para demostrar cómo la Inteligencia Artificial Generativa y las técnicas de Prompt Engineering pueden utilizarse como apoyo en la revisión técnica de proyectos web.
 
-Como caso de estudio se utiliza **Tienda Cool**, una aplicación web de comercio electrónico desarrollada con **PHP, HTML, CSS y JavaScript**.
-
----
-
-## Estudiante
-
-**Ivanna Micaela Arzamendia**
-
-**Curso:** Inteligencia Artificial: Generación de Prompts
-**Proyecto:** CodeInsight AI
-**Entrega:** Preentrega N.º 2 – Fast Prompting en Acción
+La solución combina modelos **Texto → Texto** y **Texto → Imagen**, aplicando técnicas de Fast Prompting para analizar código, detectar posibles oportunidades de mejora, generar recomendaciones priorizadas y representar visualmente los resultados.
 
 ---
 
-# 1. Introducción
+## Problemática
 
-La Inteligencia Artificial Generativa puede asistir a los desarrolladores en diferentes tareas relacionadas con la revisión de software, como el análisis de código, la identificación de errores, la detección de posibles riesgos de seguridad y la generación de documentación.
+Durante el desarrollo de aplicaciones web pueden aparecer problemas relacionados con:
 
-Sin embargo, la calidad de las respuestas obtenidas depende en gran medida de la forma en que se construyen las instrucciones enviadas al modelo.
+- calidad de código;
+- mantenibilidad;
+- manejo de errores;
+- seguridad;
+- rendimiento;
+- experiencia de usuario;
+- documentación.
 
-CodeInsight AI busca demostrar cómo la utilización de técnicas de **Fast Prompting** permite obtener respuestas más estructuradas, específicas y reutilizables en comparación con prompts simples o poco detallados.
+Detectar estos problemas manualmente puede requerir tiempo, experiencia técnica y múltiples revisiones.
 
-La implementación se realiza mediante una **Jupyter Notebook ejecutada en Google Colab**, utilizando Python y la API de Groq.
+CodeInsight AI propone utilizar Inteligencia Artificial Generativa como herramienta de apoyo para realizar una primera revisión estructurada del código y obtener recomendaciones técnicas organizadas.
 
----
-
-# 2. Presentación del problema
-
-Durante la etapa final de un proyecto web pueden quedar aspectos sin revisar aunque la aplicación funcione correctamente.
-
-Entre ellos se encuentran:
-
-* Código poco optimizado.
-* Problemas de organización y mantenibilidad.
-* Posibles errores de programación.
-* Vulnerabilidades o malas prácticas de seguridad.
-* Falta de documentación.
-* Dificultad para priorizar las mejoras necesarias.
-
-Realizar una revisión completa de forma manual puede requerir tiempo y conocimientos en diferentes áreas.
-
-La Inteligencia Artificial puede utilizarse como herramienta de apoyo para este proceso, pero un prompt demasiado general puede producir respuestas poco organizadas, extensas o difíciles de aplicar.
-
-Por este motivo, CodeInsight AI propone analizar cómo diferentes configuraciones de prompts pueden mejorar la calidad de los resultados obtenidos.
+> La solución no busca reemplazar herramientas profesionales de testing, análisis estático o auditoría de seguridad, sino complementar el trabajo del desarrollador.
 
 ---
 
-# 3. Propuesta de solución
+## Objetivo
 
-CodeInsight AI implementa una cadena de prompts especializados para analizar diferentes aspectos de un proyecto web.
+Desarrollar una POC capaz de utilizar técnicas de Prompt Engineering para analizar fragmentos de código de una aplicación web y transformar los resultados en información técnica útil y reutilizable.
 
-La solución divide el problema en etapas más pequeñas y reutiliza los resultados obtenidos anteriormente mediante **Prompt Chaining**.
-
-El flujo implementado en la POC es:
-
-```text
-Código fuente de Tienda Cool
-          ↓
-Comparación de prompts
-          ↓
-Análisis técnico optimizado
-          ↓
-Análisis de seguridad
-          ↓
-Reporte ejecutivo
-          ↓
-Backlog de mejoras
-          ↓
-Dashboard de resultados
-```
-
-El objetivo de CodeInsight AI no es reemplazar una auditoría técnica o de seguridad realizada por profesionales, sino funcionar como una herramienta de apoyo para identificar oportunidades de mejora y organizar la información obtenida.
+El proyecto busca demostrar especialmente cómo la optimización de prompts influye en la calidad y estructura de las respuestas generadas por un modelo de Inteligencia Artificial.
 
 ---
 
-# 4. Objetivos
+## Modelos utilizados
 
-## Objetivo general
+### Texto → Texto
 
-Demostrar mediante una Prueba de Concepto cómo las técnicas de Fast Prompting pueden mejorar el análisis automatizado de código perteneciente a un proyecto web.
-
-## Objetivos específicos
-
-* Analizar un fragmento real de código mediante Inteligencia Artificial.
-* Comparar un prompt básico con un prompt optimizado.
-* Aplicar técnicas de Fast Prompting.
-* Evaluar cómo la estructura del prompt modifica la calidad de la respuesta.
-* Detectar oportunidades de mejora en el código.
-* Identificar posibles riesgos de seguridad.
-* Aplicar Prompt Chaining para reutilizar resultados.
-* Generar un reporte ejecutivo.
-* Construir un backlog priorizado de mejoras.
-* Crear una representación visual de los resultados.
-* Reducir consultas innecesarias a la API.
-
----
-
-# 5. Caso de estudio
-
-Para validar el funcionamiento de la POC se utiliza **Tienda Cool**, una aplicación web de comercio electrónico desarrollada previamente.
-
-El proyecto utiliza tecnologías como:
-
-* PHP
-* HTML
-* CSS
-* JavaScript
-* MySQL
-
-Para esta POC se seleccionó un fragmento real del archivo `productos.php`.
-
-En lugar de enviar todo el proyecto a la API, se trabaja con un fragmento representativo para reducir la cantidad de información procesada y facilitar el análisis.
-
----
-
-# 6. Metodología
-
-La implementación se desarrolla mediante las siguientes etapas:
-
-1. Selección de un fragmento real del código fuente.
-2. Ejecución de un prompt básico.
-3. Análisis del resultado obtenido.
-4. Diseño de un prompt optimizado.
-5. Ejecución del prompt aplicando técnicas de Fast Prompting.
-6. Comparación de ambos resultados.
-7. Reutilización del análisis optimizado para una revisión de seguridad.
-8. Generación de un reporte ejecutivo.
-9. Creación de un backlog priorizado de mejoras.
-10. Generación de gráficos mediante Python.
-11. Análisis de resultados y conclusiones.
-
-Este procedimiento permite experimentar con diferentes configuraciones de prompts y evaluar de forma práctica su influencia sobre las respuestas generadas.
-
----
-
-# 7. Técnicas de Prompting utilizadas
-
-## Prompt básico
-
-Se utiliza inicialmente una instrucción breve y poco estructurada:
-
-```text
-Revisa el siguiente código y dime si se puede mejorar.
-```
-
-Su objetivo es generar una línea base para posteriormente comparar los resultados.
-
----
-
-## Role Prompting
-
-Se asigna un rol específico al modelo:
-
-```text
-Actúa como un desarrollador web senior especializado en PHP,
-revisión de código y buenas prácticas de seguridad.
-```
-
-Esto permite orientar la respuesta hacia un perfil técnico determinado.
-
----
-
-## Context Prompting
-
-Se proporciona información sobre el proyecto analizado:
-
-```text
-El siguiente código pertenece a Tienda Cool,
-una aplicación web de comercio electrónico desarrollada
-con PHP, HTML, CSS y JavaScript.
-```
-
-El contexto permite que el modelo interprete mejor la tarea solicitada.
-
----
-
-## Definición de restricciones
-
-El prompt optimizado establece límites concretos, por ejemplo:
-
-* Máximo de cinco hallazgos.
-* No inventar problemas.
-* Priorizar problemas de seguridad o funcionamiento.
-* Evitar recomendaciones genéricas.
-* Utilizar un lenguaje técnico pero comprensible.
-
----
-
-## Formato de salida
-
-También se define previamente cómo debe organizarse la respuesta:
-
-* Hallazgo.
-* Categoría.
-* Prioridad.
-* Explicación.
-* Recomendación.
-
-Esto permite obtener resultados más uniformes y fáciles de interpretar.
-
----
-
-## Prompt Chaining
-
-CodeInsight AI utiliza **Prompt Chaining**, donde el resultado generado por una etapa se convierte en la entrada de la siguiente.
-
-Ejemplo:
-
-```text
-Análisis técnico
-       ↓
-Análisis de seguridad
-       ↓
-Reporte ejecutivo
-       ↓
-Backlog de mejoras
-```
-
-Esta estrategia permite dividir una tarea compleja en problemas más pequeños y reutilizar la información existente.
-
----
-
-# 8. Análisis de seguridad
-
-Una de las etapas de CodeInsight AI está orientada específicamente al análisis de seguridad.
-
-Los hallazgos obtenidos previamente son evaluados utilizando buenas prácticas de desarrollo seguro y referencias de **OWASP Top 10:2025** cuando existe una correspondencia clara.
-
-Entre los riesgos analizados se incluyen problemas relacionados con:
-
-* SQL Injection.
-* Validación de datos.
-* Escape de contenido HTML.
-* Manejo seguro de información proveniente del usuario.
-
-Los resultados de la IA representan recomendaciones de apoyo y **no reemplazan una auditoría profesional de seguridad**.
-
----
-
-# 9. Implementación
-
-La POC fue desarrollada mediante:
-
-* Python
-* Jupyter Notebook
-* Google Colab
-* Groq API
-* Pandas
-* Matplotlib
-
-El modelo utilizado durante las pruebas es:
+Se utiliza la **API de Groq** junto con el modelo:
 
 ```text
 openai/gpt-oss-20b
 ```
 
-La API Key se solicita durante la ejecución mediante `getpass`, evitando almacenarla directamente dentro del Notebook.
+El modelo se utiliza para:
+
+- analizar código;
+- detectar problemas técnicos;
+- realizar una revisión específica de seguridad;
+- generar recomendaciones;
+- crear un reporte técnico;
+- producir un backlog de mejoras.
+
+### Texto → Imagen
+
+Se utiliza **ChatGPT - Generación de imágenes** como herramienta externa.
+
+Según lo permitido por la consigna del proyecto, la imagen se genera directamente desde la herramienta, sin utilizar una API de generación de imágenes.
+
+El prompt utilizado se encuentra documentado en:
+
+```text
+prompts/prompt_texto_imagen.md
+```
+
+---
+
+## Resultado Texto → Imagen
+
+La imagen representa visualmente el flujo principal de CodeInsight AI:
+
+**Código fuente → Análisis con IA → Hallazgos técnicos → Mejoras priorizadas**
+
+![CodeInsight AI - Análisis visual](images/texto-imagen/codeinsight_analisis_visual.png)
+
+---
+
+## Técnicas de Fast Prompting
+
+Durante el proyecto se implementan diferentes técnicas de Prompt Engineering.
+
+### Role Prompting
+
+Se asigna al modelo un rol específico para orientar la respuesta hacia un dominio determinado.
 
 Ejemplo:
 
-```python
-from groq import Groq
-from getpass import getpass
-
-api_key = getpass("Ingresá tu GROQ_API_KEY: ")
-
-client = Groq(api_key=api_key)
+```text
+Actúa como un desarrollador web senior especializado en React,
+revisión de código y buenas prácticas de desarrollo frontend.
 ```
 
-De esta forma la credencial privada no queda almacenada en el repositorio público.
+### Context Prompting
 
----
+Se proporciona información adicional sobre el proyecto y el código analizado.
 
-# 10. Comparación de prompts
+### Task Specification
 
-Durante la POC se compararon dos configuraciones.
+Se especifica claramente la tarea que debe realizar el modelo.
 
-| Criterio                         | Prompt básico | Prompt optimizado   |
-| -------------------------------- | ------------- | ------------------- |
-| Contexto del proyecto            | No            | Sí                  |
-| Rol definido                     | No            | Sí                  |
-| Criterios de análisis            | No definidos  | Definidos           |
-| Priorización                     | Limitada      | Alta / Media / Baja |
-| Formato estructurado             | Parcial       | Sí                  |
-| Cantidad de hallazgos controlada | No            | Máximo 5            |
-| Facilidad de interpretación      | Media         | Alta                |
+### Constraints
 
-Los resultados permiten observar que el prompt optimizado proporciona mayor control sobre el tipo de respuesta esperada.
+Se establecen restricciones para controlar la respuesta, por ejemplo:
 
----
+- cantidad máxima de hallazgos;
+- prioridades;
+- evitar recomendaciones genéricas;
+- no inventar vulnerabilidades;
+- no asumir información que no aparece en el código.
 
-# 11. Reporte ejecutivo
+### Output Formatting
 
-Luego del análisis técnico y de seguridad, CodeInsight AI reutiliza los resultados para generar un reporte ejecutivo.
+Se establece previamente la estructura esperada de la respuesta.
 
-El reporte incluye:
+### Few-Shot Prompting
 
-* Resumen general.
-* Principales hallazgos.
-* Riesgos de seguridad.
-* Recomendaciones prioritarias.
-* Conclusión.
+Se incorpora un ejemplo del formato esperado para orientar al modelo.
 
-El objetivo es transformar información técnica en contenido que pueda ser comprendido tanto por desarrolladores como por usuarios con perfiles menos técnicos.
+### Prompt Chaining
 
----
-
-# 12. Backlog de mejoras
-
-A partir de los resultados anteriores se genera un backlog priorizado.
-
-Cada tarea incluye:
-
-* ID.
-* Descripción.
-* Origen del hallazgo.
-* Prioridad.
-* Impacto esperado.
-* Acción recomendada.
-
-Esto permite convertir los resultados generados por la IA en acciones concretas que pueden incorporarse a futuras versiones del proyecto.
-
----
-
-# 13. Dashboard de resultados
-
-Los principales hallazgos son representados visualmente mediante gráficos desarrollados con Python.
-
-Para ello se utilizan:
-
-```python
-pandas
-matplotlib
-```
-
-El dashboard permite visualizar los resultados según:
-
-* Categoría.
-* Nivel de prioridad.
-
-La visualización se genera directamente dentro de la Jupyter Notebook y no requiere una API externa de generación de imágenes.
-
----
-
-# 14. Optimización del uso de la API
-
-Uno de los objetivos de la implementación fue evitar consultas innecesarias al modelo.
-
-Durante la POC se realizan consultas para:
-
-1. Probar la conexión con la API.
-2. Ejecutar el prompt básico.
-3. Ejecutar el prompt optimizado.
-4. Realizar el análisis de seguridad.
-5. Generar el reporte ejecutivo.
-6. Generar el backlog.
-
-Las etapas posteriores reutilizan los resultados ya obtenidos siempre que sea posible.
-
-La comparación de resultados y los gráficos son generados directamente mediante Python y no requieren nuevas consultas a la API.
-
-Este enfoque permite:
-
-* Reducir información repetida.
-* Reducir el consumo de tokens.
-* Disminuir la cantidad de consultas.
-* Optimizar el costo de ejecución.
-* Mejorar la reutilización de resultados.
-
----
-
-# 15. Estructura del repositorio
+La tarea se divide en diferentes etapas relacionadas:
 
 ```text
-ENTREGA2-CodeInsight-AI/
+Análisis técnico
+      ↓
+Análisis de seguridad
+      ↓
+Reporte técnico
+      ↓
+Backlog de mejoras
+```
+
+---
+
+## Comparación de prompts
+
+Uno de los objetivos principales de la POC es comparar dos enfoques.
+
+### Prompt básico
+
+```text
+Analiza el siguiente código y dime qué problemas tiene.
+```
+
+Este prompt permite obtener una respuesta inicial, pero ofrece poco control sobre:
+
+- estructura;
+- cantidad de hallazgos;
+- prioridades;
+- alcance del análisis;
+- posibles inferencias del modelo.
+
+### Prompt optimizado
+
+La versión optimizada incorpora:
+
+```text
+Rol
++
+Contexto
++
+Tarea
++
+Restricciones
++
+Formato de salida
++
+Ejemplo Few-Shot
+```
+
+Esto permite obtener respuestas más estructuradas, consistentes y reutilizables.
+
+Los prompts utilizados se encuentran documentados en:
+
+```text
+prompts/prompt_texto_texto.md
+```
+
+---
+
+## Prompt Chaining
+
+CodeInsight AI divide el proceso en diferentes etapas.
+
+### 1. Análisis técnico
+
+Identificación de problemas relacionados con buenas prácticas, mantenibilidad, manejo de errores y experiencia de usuario.
+
+### 2. Análisis de seguridad
+
+Revisión orientada a posibles riesgos que puedan justificarse mediante el código disponible.
+
+### 3. Reporte técnico
+
+Consolidación de los resultados obtenidos anteriormente.
+
+### 4. Backlog de mejoras
+
+Transformación de las recomendaciones en tareas concretas y priorizadas.
+
+---
+
+## Visualización de resultados
+
+Los resultados generados por el modelo son procesados mediante:
+
+- **Pandas**
+- **Matplotlib**
+
+La Notebook genera tablas y gráficos que permiten visualizar la distribución de prioridades:
+
+```text
+Alta
+Media
+Baja
+```
+
+Estas visualizaciones complementan el análisis textual realizado por la IA.
+
+---
+
+## Tecnologías utilizadas
+
+- Python
+- Jupyter Notebook
+- Google Colab
+- Groq API
+- `openai/gpt-oss-20b`
+- Pandas
+- Matplotlib
+- HTTPX
+- ChatGPT
+- Git
+- GitHub
+
+---
+
+## Estructura del proyecto
+
+```text
+ENTREGA2-Gen de prompt/
 │
+├── images/
+│   ├── capturas/
+│   └── texto-imagen/
+│       └── codeinsight_analisis_visual.png
+│
+├── prompts/
+│   ├── prompt_texto_texto.md
+│   └── prompt_texto_imagen.md
+│
+├── .gitignore
 ├── CodeInsight_AI_Entrega2.ipynb
+├── CodeInsight_AI_Proyecto_Final.ipynb
 ├── README.md
 └── requirements.txt
 ```
 
+### Notebooks
+
+`CodeInsight_AI_Entrega2.ipynb`
+
+Corresponde a la segunda entrega del proyecto y se conserva para mostrar la evolución del trabajo.
+
+`CodeInsight_AI_Proyecto_Final.ipynb`
+
+Contiene la implementación completa del Proyecto Final.
+
 ---
 
-# 16. Instalación
+## Instalación
 
-Para instalar las dependencias necesarias:
-
-```bash
-pip install groq pandas matplotlib
-```
-
-También pueden instalarse utilizando:
+### 1. Clonar el repositorio
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/IvannaAr94/ENTREGA2-CodeInsight-IA-gen-dePrompt.git
 ```
 
-Contenido de `requirements.txt`:
+### 2. Ingresar al proyecto
+
+```bash
+cd ENTREGA2-CodeInsight-IA-gen-dePrompt
+```
+
+### 3. Instalar las dependencias
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Las principales dependencias son:
 
 ```text
 groq
 pandas
 matplotlib
+httpx
+ipykernel
 ```
 
 ---
 
-# 17. Ejecución
+## Configuración de Groq
 
-1. Abrir `CodeInsight_AI_Entrega2.ipynb` en Google Colab o Jupyter Notebook.
-2. Ejecutar la celda de instalación de dependencias.
-3. Ingresar una API Key válida de Groq cuando sea solicitada.
-4. Ejecutar las celdas del Notebook en orden.
-5. Analizar los resultados generados por cada etapa.
+Por razones de seguridad, la API Key **no se almacena dentro del código ni en GitHub**.
 
-La API Key **no debe incluirse dentro del código ni subirse al repositorio**.
+Durante la ejecución de la Notebook se solicita mediante:
 
----
+```python
+import getpass
 
-# 18. Resultados
+GROQ_API_KEY = getpass.getpass(
+    "Ingresá tu GROQ API Key: "
+)
+```
 
-La implementación permitió comprobar que un prompt básico puede encontrar problemas relevantes, pero ofrece menor control sobre la estructura y priorización de la respuesta.
+Luego se inicializa el cliente:
 
-Al aplicar técnicas de Fast Prompting se obtuvieron resultados más estructurados y específicos.
+```python
+from groq import Groq
 
-La utilización de roles, contexto, restricciones, formatos de salida y Prompt Chaining permitió organizar el proceso de análisis en distintas etapas y reutilizar los resultados generados anteriormente.
+client = Groq(api_key=GROQ_API_KEY)
+```
 
----
-
-# 19. Conclusión
-
-CodeInsight AI permitió transformar la propuesta conceptual inicial en una Prueba de Concepto funcional.
-
-La experimentación realizada demuestra que la construcción del prompt influye directamente en la claridad, estructura y utilidad de las respuestas generadas por un modelo de Inteligencia Artificial.
-
-Las técnicas de Fast Prompting permitieron mejorar la organización de los resultados, establecer prioridades y dividir un problema complejo en tareas más simples.
-
-Además, el uso de Prompt Chaining permitió reutilizar información obtenida previamente, evitando procesar nuevamente el código completo en cada etapa.
-
-Como resultado, la POC fue capaz de realizar un análisis técnico, identificar posibles riesgos de seguridad, generar un reporte ejecutivo, construir un backlog de mejoras y representar visualmente los principales hallazgos.
-
-De esta manera, CodeInsight AI demuestra cómo una estrategia adecuada de Prompt Engineering puede utilizarse para construir soluciones de Inteligencia Artificial más organizadas, eficientes y reutilizables.
+De esta manera, la credencial permanece fuera del repositorio.
 
 ---
 
-## Nota de seguridad
+## Ejecución
 
-Este proyecto fue desarrollado con fines académicos.
+Abrir:
 
-Las respuestas generadas por Inteligencia Artificial deben considerarse recomendaciones de apoyo y no reemplazan una revisión profesional del código ni una auditoría de seguridad especializada.
+```text
+CodeInsight_AI_Proyecto_Final.ipynb
+```
 
-**Nunca se deben publicar API Keys, credenciales, contraseñas o información sensible dentro del repositorio.**
+La Notebook debe ejecutarse de forma secuencial desde la primera celda de código.
+
+Orden general:
+
+```text
+Instalación de dependencias
+        ↓
+Imports
+        ↓
+API Key
+        ↓
+Configuración del modelo
+        ↓
+Función consultar_ia()
+        ↓
+Código de prueba
+        ↓
+Prompt básico
+        ↓
+Prompt optimizado
+        ↓
+Comparación
+        ↓
+Prompt Chaining
+        ↓
+Visualizaciones
+        ↓
+Texto → Imagen
+        ↓
+Resultados y conclusiones
+```
+
+---
+
+## Buenas prácticas de seguridad
+
+El proyecto aplica diferentes buenas prácticas:
+
+- las API Keys no se almacenan en el código;
+- `.env` se encuentra ignorado mediante `.gitignore`;
+- `.venv` no se sube al repositorio;
+- no se incluyen credenciales dentro de la Notebook;
+- los prompts de seguridad indican explícitamente que el modelo no debe inventar vulnerabilidades;
+- los resultados generados por IA deben ser revisados antes de aplicarlos sobre un proyecto real.
+
+---
+
+## Resultados
+
+La POC permite:
+
+- analizar fragmentos de código mediante IA;
+- comparar un prompt básico con un prompt optimizado;
+- aplicar técnicas de Fast Prompting;
+- estructurar los hallazgos;
+- asignar prioridades;
+- realizar una revisión de seguridad;
+- generar un reporte técnico;
+- producir un backlog de mejoras;
+- visualizar los resultados mediante gráficos;
+- generar una representación visual utilizando un modelo Texto → Imagen.
+
+Los resultados muestran que un prompt correctamente estructurado ofrece mayor control sobre la salida generada y facilita su reutilización en etapas posteriores.
+
+---
+
+## Limitaciones
+
+CodeInsight AI fue desarrollado como una Proof of Concept.
+
+Actualmente:
+
+- analiza fragmentos representativos y no proyectos completos;
+- las respuestas pueden variar entre ejecuciones;
+- depende del contexto proporcionado;
+- no reemplaza herramientas profesionales de testing o seguridad;
+- requiere revisión humana de las recomendaciones;
+- la generación de imágenes se realiza mediante una herramienta externa.
+
+---
+
+## Mejoras futuras
+
+Entre las posibles evoluciones del proyecto se encuentran:
+
+- análisis automático de múltiples archivos;
+- soporte para diferentes lenguajes y frameworks;
+- generación de reportes exportables;
+- integración con herramientas de análisis estático;
+- interfaz gráfica;
+- selección de diferentes tipos de análisis;
+- integración Texto → Imagen mediante API;
+- incorporación opcional de un modelo Texto → Audio.
+
+---
+
+## Referencias
+
+- Documentación oficial de Python.
+- Documentación oficial de Jupyter Notebook.
+- Documentación oficial de Groq API.
+- Documentación oficial de Pandas.
+- Documentación oficial de Matplotlib.
+- Documentación de Git y GitHub.
+- Material proporcionado durante el curso de Inteligencia Artificial - Generación de Prompts.
+- ChatGPT, utilizado para generación Texto → Imagen.
+
+---
+
+## Autora
+
+### Ivanna Micaela Arzamendia
+
+Proyecto desarrollado como entrega final de la materia **Inteligencia Artificial - Generación de Prompts**.

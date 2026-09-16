@@ -1,5 +1,22 @@
+# Variables de entorno y credenciales
 .env
 .env.*
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Jupyter
 .ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

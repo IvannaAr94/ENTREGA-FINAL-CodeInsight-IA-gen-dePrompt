@@ -1,3 +1,5 @@
 groq
 pandas
 matplotlib
+httpx
+ipykernel
