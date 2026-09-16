@@ -285,7 +285,7 @@ git clone https://github.com/IvannaAr94/ENTREGA-FINAL-CodeInsight-IA-gen-dePromp
 ### 2. Ingresar al proyecto
 
 ```bash
-cd ENTREGA2-CodeInsight-IA-gen-dePrompt
+cd ENTREGA-FINAL-CodeInsight-IA-gen-dePrompt
 ```
 
 ### 3. Instalar las dependencias
