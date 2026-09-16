@@ -279,7 +279,7 @@ Contiene la implementación completa del Proyecto Final.
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/IvannaAr94/ENTREGA2-CodeInsight-IA-gen-dePrompt.git
+git clone https://github.com/IvannaAr94/ENTREGA-FINAL-CodeInsight-IA-gen-dePrompt.git
 ```
 
 ### 2. Ingresar al proyecto
